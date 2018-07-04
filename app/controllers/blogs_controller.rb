@@ -31,6 +31,7 @@ class BlogsController < ApplicationController
 
 	def update
 		blog = Blog.find(params[:id])
+		blog.content = params[:content][:text]
 		if blog.update(blog_params)
 			flash[:message] = "blog updated!"
 			redirect_to "/"
@@ -41,7 +42,7 @@ class BlogsController < ApplicationController
 	end
 
 	def destroy
-		blog = blog.find(params[:id])
+		blog = Blog.find(params[:id])
 		blog.comments.each do |comment|
 			comment.destroy
 		end

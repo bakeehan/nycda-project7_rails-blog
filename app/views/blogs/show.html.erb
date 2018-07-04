@@ -3,7 +3,12 @@
 
 <h2><%= @blog.title %></h2>
 
-<h3><%= @blog.user.displayname %></h3>
+<% if @blog.user == current_user %>
+	<a href="/blogs/<%= @blog.id %>/edit"><h3>edit post</h3></a>
+	<%= link_to "delete post", blog_path, method: :delete %>
+<% else %>
+	<h3><%= @blog.user.displayname %></h3>
+<% end %>
 
 <%= @blog.content %>
 
