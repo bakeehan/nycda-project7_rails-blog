@@ -17,12 +17,11 @@ def create
 			comment.replied_id += 1
 			comment.save
 		end
-		redirect_to "/blogs/#{params[:blog_id]}"
-	else
+	# else
 		# cookies[:fuck] = comment.errors.full_messages
 		# cookies[:bloggo] = params[:blog_id]
-		redirect_to "/"
 	end
+	redirect_to "/"
 end
 
   def edit
