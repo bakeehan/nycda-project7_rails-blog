@@ -11,12 +11,14 @@
   </head>
 
   <nav>
+    <h1>What's your favorite idea?</h1>
     <a href="/">All posts</a>
     <% if user_signed_in? %>
     <a href="/blogs/new">New post</a>
     <%= link_to("Your profile", edit_user_registration_path) %>
     <%= link_to('Logout', destroy_user_session_path,  :method=>'delete') %>
     <% end %>
+    <div id="grad"></div>
   </nav>
 
   <body>

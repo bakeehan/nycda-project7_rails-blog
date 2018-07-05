@@ -46,7 +46,8 @@
 }
 
 .full-blog-comment {
-	width: 75%;
+	width: 70%;
+	color:#353131;
 }
 
 .blog-full .even {
@@ -61,7 +62,7 @@
 
 .main-comment {
 	margin: 10px 0 5px 0;
-	width:100%;
+	width:80%;
 	background-color:#E2938A;
 }
 
@@ -89,6 +90,7 @@ input[type="text"] {
 
 .full-comm {
 	text-align: right;
+	margin-bottom:10px;
 }
 
 .reply_form input[type="text"] {
@@ -109,6 +111,11 @@ input[type="submit"] {
 }
 
 .comment-thread-box {
-	width:80%;
-	margin: 0 auto;
+	width:75%;
+	margin: 15px 7%;
+}
+
+.full-blog-comment b {
+	margin-right:3px;
+	color:black;
 }

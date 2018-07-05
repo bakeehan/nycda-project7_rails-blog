@@ -1,16 +1,16 @@
 <div class="blog-full">
 
-	<div class="blog-full-content">
+	<!-- <div class="blog-full-content"> -->
 		<h2><%= @blog.title %></h2>
-
-		<% if @blog.user == current_user %>
-			<div class="blog-options">
-				<a href="/blogs/<%= @blog.id %>/edit">edit post</a>
-				<%= link_to "delete post", blog_path, method: :delete %>
-			</div>
-		<% else %>
-			<h3><%= @blog.user.displayname %></h3>
-		<% end %>
+		
+		<h3><b>by</b> <%= @blog.user.displayname %>
+			<% if @blog.user == current_user %>
+				<div class="blog-options">
+					<a href="/blogs/<%= @blog.id %>/edit">edit post</a>
+					<%= link_to "delete post", blog_path, method: :delete %>
+				</div>
+			<% end %>
+		</h3>
 
 		<%= @blog.content %>
 
@@ -22,7 +22,7 @@
 			<% end %>
 		</div>
 		
-	</div>
+	<!-- </div> -->
 
 	<h3>comments</h3>
 
@@ -31,7 +31,7 @@
 			<% if comment.replied == comment %>
 				<% comment.comments.each_with_index do |reply, index| %>
 					<div class="full-blog-comment <% if reply == comment %>main-comment<% elsif index%2==0 %>odd<% else %>even<% end %>">
-						<%= reply.user.displayname %>:
+						<b><%= reply.user.displayname %> <% if reply == comment %>said<% else %>answered<% end %>:</b>
 						<%= reply.content %>
 					</div>
 				<% end %>
