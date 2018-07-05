@@ -1,3 +1,31 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.edit_user, .new_user {
+	width:100%;
+	margin-bottom:15px;
+}
+
+.wide-h {
+	width:100%;
+	padding-top:5px;
+	margin-bottom: 10px;
+	border-top: 2px dotted pink;
+}
+
+.field {
+	margin: 5px 0;
+}
+
+.actions {
+	margin-top: 10px;
+}
+
+.edit_user input {
+	margin:5px 0 10px;
+}
+
+.enters a {
+	display:block;
+}

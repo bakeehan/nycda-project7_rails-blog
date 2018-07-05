@@ -4,13 +4,13 @@
 
 		<a href="/blogs/<%= entry.id%>"><h2><%= entry.title %></h2></a>
 
-		<h3><b>posted by</b> <%= entry.user.displayname %></h3>
+		<h3><b>posted by</b> <%= entry.user.displayname %>
+			<b><% if entry.user == current_user %>
+				<a href="/blogs/<%= entry.id %>/edit">edit</a>
+			<% end %></b>
+		</h3>
 
 		<%= entry.content %>
-
-		<% if entry.user == current_user %>
-			<a href="/blogs/<%= entry.id %>/edit">edit</a>
-		<% end %>
 
 		<div class="entry-comments-box">
 			<% entry.comments.each_with_index do |comment, i| %>

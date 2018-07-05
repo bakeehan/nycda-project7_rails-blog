@@ -7,18 +7,17 @@
 	padding:10px 15px 15px;
 	text-align: justify;
 	flex: none;
+	background-color: #eee;
 }
 
 .blog-entry {
 	width: 45%;
 	margin: 12px 0;
-	background-color: #ddd;
 }
 
 .blog-full {
 	width:90%;
 	margin:10px auto 0;
-	background-color: #eee;
 	padding-bottom:0;
 }
 
@@ -63,4 +62,32 @@ h3 b {
 	margin:5px 0 15px;
 	border-top: 2px dotted pink;
 	padding-top:5px;
+}
+
+.big-blog-form input[type="submit"], .big-blog-form a {
+	text-transform:uppercase;
+	height:20px;
+	width:150px;
+	display:block;
+	margin-top:10px;
+	text-align: center;
+	font-size:1em;
+}
+
+.big-blog-form a {
+	padding-top:2px;
+	height:6px;
+	margin-top:0;
+}
+
+.del {
+	border-radius:10px;
+	margin-top:10px;
+	margin-left:100px;
+	border: 2px dotted red;
+}
+
+#ftitle {
+	margin:10px 0;
+	height:auto;
 }

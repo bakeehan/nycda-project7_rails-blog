@@ -1,10 +1,12 @@
-<h1>Blogs#edit</h1>
-<p>Find me in app/views/blogs/edit.html.erb</p>
+<div class="big-blog-form">
+	<%= form_for @blog do |f| %>
+		title <%= f.text_field :title, id: "ftitle" %><br>
+		<%= text_area(:content, :text, size: "80x18", value: @blog.content) %>
+		<div class="flexed">
+			<%= f.submit "update" %>
+	<% end %>
 
-<%= form_for @blog do |f| %>
-	title <%= f.text_field :title %><br>
-	<%= text_area(:content, :text, size: "50x10", value: @blog.content) %>
-	<%= f.submit "update" %>
-<% end %>
+		<div class="del"><%= link_to "delete post", blog_path, method: :delete %></div>
+	</div>
 
-<%= link_to "delete post", blog_path, method: :delete %>
+</div>
