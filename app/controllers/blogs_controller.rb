@@ -1,8 +1,12 @@
 class BlogsController < ApplicationController
 
 	def index
-		@blogs = Blog.all
-		@comment = Comment.new
+		if user_signed_in?
+			@blogs = Blog.all
+			@comment = Comment.new
+		else
+			redirect_to "/users/sign_up"
+		end
 	end
 
 	def show
