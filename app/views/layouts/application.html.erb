@@ -9,7 +9,14 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <%= link_to('Logout', destroy_user_session_path,  :method=>'delete') %>
+  <nav>
+    <a href="/">All posts</a>
+    <% if user_signed_in? %>
+    <!-- <a href="/users/<%= current_user.id %>">Your profile</a> -->
+    <%= link_to("Your profile", edit_user_registration_path) %>
+    <%= link_to('Logout', destroy_user_session_path,  :method=>'delete') %>
+    <% end %>
+  </nav>
 
   <body>
     <p class="notice"><%= notice %></p>
