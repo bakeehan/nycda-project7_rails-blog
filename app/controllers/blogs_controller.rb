@@ -38,7 +38,7 @@ class BlogsController < ApplicationController
 		blog.content = params[:content][:text]
 		if blog.update(blog_params)
 			flash[:message] = "blog updated!"
-			redirect_to "/"
+			redirect_to "/blogs/#{params[:id]}"
 		else
 			flash[:message] = "failed"
 			render edit_blog_path

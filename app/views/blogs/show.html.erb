@@ -1,42 +1,50 @@
-<h1>Blogs#show</h1>
-<p>Find me in app/views/blogs/show.html.erb</p>
+<div class="blog-full">
 
-<h2><%= @blog.title %></h2>
+	<div class="blog-full-content">
+		<h2><%= @blog.title %></h2>
 
-<% if @blog.user == current_user %>
-	<a href="/blogs/<%= @blog.id %>/edit"><h3>edit post</h3></a>
-	<%= link_to "delete post", blog_path, method: :delete %>
-<% else %>
-	<h3><%= @blog.user.displayname %></h3>
-<% end %>
+		<% if @blog.user == current_user %>
+			<div class="blog-options">
+				<a href="/blogs/<%= @blog.id %>/edit">edit post</a>
+				<%= link_to "delete post", blog_path, method: :delete %>
+			</div>
+		<% else %>
+			<h3><%= @blog.user.displayname %></h3>
+		<% end %>
 
-<%= @blog.content %>
+		<%= @blog.content %>
 
-<%= form_for @comment, :url => '/comment' do |f| %>
-	<%= f.text_field :content %>
-	<%= hidden_field_tag :blog_id, @blog.id %>
-	<%= f.submit "comment" %>
-<% end %>
-
-<h4>comments</h4>
-
-<div class="comments-container">
-<% @blog.comments.each_with_index do |comment, i| %>
-	<div class="comment-thread-box">
-		<% if comment.replied == comment %>
-			<% comment.comments.each do |reply| %>
-				<div class="blog-entry-comment <% if reply == comment %>comment-reply<% end %>">
-					<%= reply.user.displayname %>:
-					<%= reply.content %>
-				</div>
-			<% end %>
+		<div class="full-comm">
 			<%= form_for @comment, :url => '/comment' do |f| %>
 				<%= f.text_field :content %>
 				<%= hidden_field_tag :blog_id, @blog.id %>
-				<%= hidden_field_tag :replied_id, comment.id %>
-				<%= f.submit "reply" %>
+				<%= f.submit "comment" %>
 			<% end %>
-		<% end %>
+		</div>
+		
 	</div>
-<% end %>
+
+	<h3>comments</h3>
+
+	<% @blog.comments.each_with_index do |comment, i| %>
+		<div class="comment-thread-box">
+			<% if comment.replied == comment %>
+				<% comment.comments.each_with_index do |reply, index| %>
+					<div class="full-blog-comment <% if reply == comment %>main-comment<% elsif index%2==0 %>odd<% else %>even<% end %>">
+						<%= reply.user.displayname %>:
+						<%= reply.content %>
+					</div>
+				<% end %>
+				<div class="reply_form">
+					<%= form_for @comment, :url => '/comment' do |f| %>
+						<%= f.text_field :content %>
+						<%= hidden_field_tag :blog_id, @blog.id %>
+						<%= hidden_field_tag :replied_id, comment.id %>
+						<%= f.submit "reply" %>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+	<% end %>
+
 </div>

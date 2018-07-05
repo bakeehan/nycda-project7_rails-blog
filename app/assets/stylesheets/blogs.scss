@@ -1,3 +1,64 @@
 // Place all the styles related to the blogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.blog-entry, .blog-full, .blog-full-content {
+	border-radius: 10px;
+	padding:10px 15px 15px;
+	text-align: justify;
+	flex: none;
+}
+
+.blog-entry {
+	width: 45%;
+}
+
+.blog-full {
+	width:90%;
+	margin:0 auto;
+}
+
+.blog-entry, .blog-full-content {
+	background-color: #c2c2c2;
+}
+
+.blog-full h2 {
+	color: white;
+	font-weight:lighter;
+}
+
+.blog-full h2::first-letter {
+	color: #db5e5e;
+	font-style:oblique;
+	font-size:1.3em;
+	margin-right:3px;
+	text-transform:uppercase;
+}
+
+.blog-entry h3 {
+	margin-bottom:10px;
+}
+
+.blog-entry h3 b {
+	font-variant:small-caps;
+}
+
+.blog-full-content {
+	margin:10px 0;
+}
+
+.blog-full h3 {
+	margin-top:10px;
+}
+
+.blog-options a {
+	margin-right:15px;
+}
+
+.blog-options {
+	margin-bottom:10px;
+}
+
+.full-comm {
+	margin:10px 5% 0 0;
+}

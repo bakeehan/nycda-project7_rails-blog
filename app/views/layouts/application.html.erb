@@ -4,7 +4,8 @@
     <title>RailsBlog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Ovo" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -12,15 +13,17 @@
   <nav>
     <a href="/">All posts</a>
     <% if user_signed_in? %>
-    <!-- <a href="/users/<%= current_user.id %>">Your profile</a> -->
+    <a href="/blogs/new">New post</a>
     <%= link_to("Your profile", edit_user_registration_path) %>
     <%= link_to('Logout', destroy_user_session_path,  :method=>'delete') %>
     <% end %>
   </nav>
 
   <body>
-    <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="notice"><%= notice %></div>
+    <div class="alert"><%= alert %></div>
+    <div id="wrapper" class="flexed">
+      <%= yield %>
+    </div>
   </body>
 </html>
