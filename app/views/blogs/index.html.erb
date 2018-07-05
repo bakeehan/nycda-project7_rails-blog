@@ -14,14 +14,16 @@
 
 		<div class="entry-comments-box">
 			<% entry.comments.each_with_index do |comment, i| %>
-				<% if entry.comments.length > 2 && i < 2 %>
+				<% if entry.comments.length > 2 && i < 1 %>
 					<div class="blog-entry-comment <% if i%2==0 %>even<% else %>odd<% end %>"><%= comment.content %></div>
 				<% elsif entry.comments.length > 2 && i == entry.comments.length - 1 %>
 					<!-- <div class="blog-entry-comment even"><%= comment.content %></div> -->
-					<div class="blog-entry-comment even commentspace">...</div>
-					<a href="/blogs/<%= entry.id%>" class="comments-link">see all comments</a>
+					<div class="blog-entry-comment odd commentspace">...</div>
 				<% elsif entry.comments.length <= 2 %>
 					<div class="blog-entry-comment <% if i%2==0 %>even<% else %>odd<% end %>"><%= comment.content %></div>
+				<% end %>
+				<% if entry.comments.length > 0 && i == entry.comments.length-1 %>
+					<a href="/blogs/<%= entry.id%>" class="comments-link">see all comments</a>
 				<% end %>
 			<% end %>
 

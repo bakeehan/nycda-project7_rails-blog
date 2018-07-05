@@ -1,9 +1,11 @@
 class BlogsController < ApplicationController
 
 	def index
-		if user_signed_in?
+		if user_signed_in? && Blog.all.length > 0
 			@blogs = Blog.all
 			@comment = Comment.new
+		elsif user_signed_in?
+			redirect_to "/blogs/new"
 		else
 			redirect_to "/users/sign_up"
 		end
